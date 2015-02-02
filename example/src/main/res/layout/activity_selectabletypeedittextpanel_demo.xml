@@ -1,54 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fc="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Basic SelectableTypeEditTextPanel -->
-    <com.marchah.uicomponent.SelectableTypeEditTextPanel
-        android:id="@+id/basicSTETP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="@color/background_material_dark"/>
-
-    <!-- Basic SelectableTypeEditTextPanel with default value, Custom Selected Item Color And Title And Hint-->
-    <com.marchah.uicomponent.SelectableTypeEditTextPanel
-        android:id="@+id/defaultValueSTETP"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        fc:fieldHint="Phone"
-        android:inputType="phone"
-        fc:dialogTitle="Select A Phone Type"
-        fc:dialogSelectedItemIndicatorColor="#2ecc71"
-        fc:dialogSelectedItemTextColor="#9b59b6"/>
+        android:orientation="vertical">
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="@color/background_material_dark"/>
+        <!-- Basic SelectableTypeEditTextPanel -->
+        <com.marchah.uicomponent.SelectableTypeEditTextPanel
+            android:id="@+id/basicSTETP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get Value"
-        android:onClick="GetValue"/>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/background_material_dark"/>
 
-    <TextView
-        android:id="@+id/basicTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <!-- Basic SelectableTypeEditTextPanel with default value, Custom Selected Item Color And Title And Hint-->
+        <com.marchah.uicomponent.SelectableTypeEditTextPanel
+            android:id="@+id/defaultValueSTETP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fc:fieldHint="Phone"
+            android:inputType="phone"
+            fc:dialogTitle="Select A Phone Type"
+            fc:dialogSelectedItemIndicatorColor="#2ecc71"
+            fc:dialogSelectedItemTextColor="#9b59b6"/>
 
-    <TextView
-        android:id="@+id/defaultValueTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/background_material_dark"/>
 
-</LinearLayout>
+        <!-- Basic SelectableTypeEditTextPanel with set a value list, Custom Selected Item Color And Title And Hint-->
+        <com.marchah.uicomponent.SelectableTypeEditTextPanel
+            android:id="@+id/setValuesSTETP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fc:fieldHint="Email"
+            android:inputType="textEmailAddress"
+            fc:dialogTitle="Select An Email Type"
+            fc:dialogSelectedItemIndicatorColor="#2ecc71"
+            fc:dialogSelectedItemTextColor="#9b59b6"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/background_material_dark"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Value"
+            android:onClick="GetValue"/>
+
+        <TextView
+            android:id="@+id/basicTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/defaultValueTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/setValuesTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</ScrollView>

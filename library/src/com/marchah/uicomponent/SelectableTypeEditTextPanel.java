@@ -90,15 +90,11 @@ public class SelectableTypeEditTextPanel extends LinearLayout {
         }
     }
 
-    public void addSelectableTypeEditText(String fieldText, int indexPreselectedType) {
-        addSelectableTypeEditText(fieldText, indexPreselectedType, false);
-    }
-
     public void addSelectableTypeEditText(String fieldText) {
         addSelectableTypeEditText(fieldText, currentIndexPreselectedType++);
     }
 
-    private void addSelectableTypeEditText(String fieldText, int indexPreselectedType, boolean addAtEnd) {
+    public void addSelectableTypeEditText(String fieldText, int indexPreselectedType) {
         if (indexPreselectedType >= listSelectType.size())
             indexPreselectedType = listSelectType.size() - 1;
         if (indexPreselectedType < 0)
@@ -122,7 +118,7 @@ public class SelectableTypeEditTextPanel extends LinearLayout {
             @Override
             public void afterTextChanged(Editable s) {
                 if (flag && s.length() > 0) {
-                    addSelectableTypeEditText(null, currentIndexPreselectedType++, true);
+                    addSelectableTypeEditText(null, currentIndexPreselectedType++);
                     flag = false;
                 }
                 else if (!flag && s.length() == 0) {
@@ -131,11 +127,35 @@ public class SelectableTypeEditTextPanel extends LinearLayout {
                 }
             }
         });
-        if (addAtEnd || listSelectableTypeEditText.size() == 0)
+        if (listSelectableTypeEditText.size() > 0
+                && listSelectableTypeEditText.get(listSelectableTypeEditText.size()-1).getData().getValue().length() == 0) {
+            removeSelectableTypeEditText(listSelectableTypeEditText.size() - 1);
+            --currentIndexPreselectedType;
             this.addView(view);
+            listSelectableTypeEditText.add(view);
+            addSelectableTypeEditText(null);
+        }
+        else {
+            this.addView(view);
+            listSelectableTypeEditText.add(view);
+        }
+    }
+
+    public void setListSelectableTypeEditText(List<Map.Entry<Integer, String>> listData) {
+        for (SelectableTypeEditText view : listSelectableTypeEditText) {
+            removeSelectableTypeEditText(view);
+        }
+        listSelectableTypeEditText.clear();
+        if (listData != null) {
+            for (Map.Entry<Integer, String> data : listData) {
+                addSelectableTypeEditText(data.getValue(), data.getKey());
+            }
+            if (listData.size() == 0 || listData.get(listData.size()-1).getValue().length() > 0)
+                addSelectableTypeEditText(null);
+        }
         else
-            this.addView(view, listSelectableTypeEditText.size() - 1);
-        listSelectableTypeEditText.add(view);
+            addSelectableTypeEditText(null);
+
     }
 
     public boolean removeSelectableTypeEditText(SelectableTypeEditText view) {
@@ -144,7 +164,7 @@ public class SelectableTypeEditTextPanel extends LinearLayout {
                 removeView(listSelectableTypeEditText.remove(i));
                 if (i > 0)
                     listSelectableTypeEditText.get(i-1).requestFocusEndOfText();
-                else
+                else if (listSelectableTypeEditText.size() > 0)
                     listSelectableTypeEditText.get(0).requestFocusEndOfText();
                 return true;
             }
@@ -163,7 +183,7 @@ public class SelectableTypeEditTextPanel extends LinearLayout {
 
         for (SelectableTypeEditText view : listSelectableTypeEditText) {
             Map.Entry<Integer, String> data = view.getData();
-            if (!data.getValue().isEmpty())
+            if (data.getValue().length() > 0)
                 listData.add(data);
         }
 
