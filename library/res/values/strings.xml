@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- CUSTOM COMPONENT PHONE -->
+    <string name="fc_selectabletypeedittext_dialog_select_type_default_title">Select A Type</string>
+    <string name="fc_selectabletypeedittext_type_button_default">Type</string>
+    <string name="fc_selectabletypeedittext_no_type">Aucun type disponible</string>
+</resources>

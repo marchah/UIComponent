@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fc="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Empty SelectableTypeEditText View-->
+    <com.marchah.uicomponent.SelectableTypeEditText
+        android:id="@+id/emptySTET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Basic SelectableTypeEditText View-->
+    <com.marchah.uicomponent.SelectableTypeEditText
+        android:id="@+id/basicSTET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Basic SelectableTypeEditText View With Custom Selected Item Color And Title And Hint -->
+    <com.marchah.uicomponent.SelectableTypeEditText
+        android:id="@+id/basicColoredSTET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fc:fieldHint="Phone"
+        android:inputType="phone"
+        fc:dialogTitle="Select A Phone Type"
+        fc:dialogSelectedItemIndicatorColor="#2ecc71"
+        fc:dialogSelectedItemTextColor="#9b59b6"/>
+
+    <!-- Basic SelectableTypeEditText View With Custom Selected Item Color And Title And Hint -->
+    <com.marchah.uicomponent.SelectableTypeEditText
+        android:id="@+id/emailSTET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fc:fieldHint="Email"
+        android:inputType="textEmailAddress"
+        fc:dialogTitle="Select A Email Type"
+        fc:dialogSelectedItemIndicatorColor="#1abc9c"
+        fc:dialogSelectedItemTextColor="#f39c12"/>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/background_material_dark"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Value"
+        android:onClick="GetValue"/>
+
+    <TextView
+        android:id="@+id/emptyTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/basicTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/basicColoredTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/emailTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

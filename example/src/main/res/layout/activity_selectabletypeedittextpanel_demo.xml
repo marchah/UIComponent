@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fc="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Basic SelectableTypeEditTextPanel -->
+    <com.marchah.uicomponent.SelectableTypeEditTextPanel
+        android:id="@+id/basicSTETP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/background_material_dark"/>
+
+    <!-- Basic SelectableTypeEditTextPanel with default value, Custom Selected Item Color And Title And Hint-->
+    <com.marchah.uicomponent.SelectableTypeEditTextPanel
+        android:id="@+id/defaultValueSTETP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fc:fieldHint="Phone"
+        android:inputType="phone"
+        fc:dialogTitle="Select A Phone Type"
+        fc:dialogSelectedItemIndicatorColor="#2ecc71"
+        fc:dialogSelectedItemTextColor="#9b59b6"/>
+
+</LinearLayout>

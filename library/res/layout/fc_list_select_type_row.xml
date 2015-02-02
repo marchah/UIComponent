@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/fc_list_select_is_selectedTV"
+        android:layout_width="5dp"
+        android:background="@color/fc_no_selected_item_list_indicator"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/fc_list_select_valueTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/fc_no_selected_item_list_text"
+        android:textSize="20sp"
+        android:padding="5dp"/>
+
+</LinearLayout>
