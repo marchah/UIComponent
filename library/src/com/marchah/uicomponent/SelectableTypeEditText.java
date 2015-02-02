@@ -136,7 +136,7 @@ public class SelectableTypeEditText extends RelativeLayout {
         a.recycle();
     }
 
-    public Map.Entry<Integer, String> getValue() {
+    public Map.Entry<Integer, String> getData() {
         return new BasicEntry<Integer, String>(keySelectedItem, fieldET.getText().toString());
     }
 

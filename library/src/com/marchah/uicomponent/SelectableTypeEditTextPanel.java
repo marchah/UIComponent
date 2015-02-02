@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by marcha on 28/01/15.
@@ -111,7 +112,7 @@ public class SelectableTypeEditTextPanel extends LinearLayout {
         view.setListSelectType(listSelectType, indexPreselectedType);
         view.setFieldText(fieldText);
         view.addTextChangedListener(new TextWatcher() {
-            private boolean flag = view.getValue().getValue().length() == 0;
+            private boolean flag = view.getData().getValue().length() == 0;
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
@@ -155,5 +156,17 @@ public class SelectableTypeEditTextPanel extends LinearLayout {
         if (pos >= 0 && pos < listSelectableTypeEditText.size())
             return removeSelectableTypeEditText(listSelectableTypeEditText.get(pos));
         return false;
+    }
+
+    public List<Map.Entry<Integer, String>> getData() {
+        List<Map.Entry<Integer, String>> listData = new LinkedList<>();
+
+        for (SelectableTypeEditText view : listSelectableTypeEditText) {
+            Map.Entry<Integer, String> data = view.getData();
+            if (!data.getValue().isEmpty())
+                listData.add(data);
+        }
+
+        return listData;
     }
 }

@@ -50,9 +50,9 @@ public class SelectableTypeEditText_Demo_Activity extends Activity {
     }
 
     public void GetValue(View view) {
-        ((TextView)findViewById(R.id.emptyTV)).setText(emptySTET.getValue().toString());
-        ((TextView)findViewById(R.id.basicTV)).setText(basicSTET.getValue().toString());
-        ((TextView)findViewById(R.id.basicColoredTV)).setText(basicColoredSTET.getValue().toString());
-        ((TextView)findViewById(R.id.emailTV)).setText(emailSTET.getValue().toString());
+        ((TextView)findViewById(R.id.emptyTV)).setText(emptySTET.getData().toString());
+        ((TextView)findViewById(R.id.basicTV)).setText(basicSTET.getData().toString());
+        ((TextView)findViewById(R.id.basicColoredTV)).setText(basicColoredSTET.getData().toString());
+        ((TextView)findViewById(R.id.emailTV)).setText(emailSTET.getData().toString());
     }
 }

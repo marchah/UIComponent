@@ -2,6 +2,8 @@ package com.marchah.example.uicomponent;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import com.marchah.uicomponent.SelectableTypeEditTextPanel;
 
@@ -11,6 +13,9 @@ import java.util.LinkedHashMap;
  * Created by marcha on 28/01/15.
  */
 public class SelectableTypeEditTextPanel_Demo_Activity extends Activity {
+
+    SelectableTypeEditTextPanel basicSTETP;
+    SelectableTypeEditTextPanel defaultValueSTETP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +30,18 @@ public class SelectableTypeEditTextPanel_Demo_Activity extends Activity {
         listPhoneItem.put(5, "Pager");
         listPhoneItem.put(6, "Other");
 
-        SelectableTypeEditTextPanel basicSTETP = (SelectableTypeEditTextPanel)findViewById(R.id.basicSTETP);
+        basicSTETP = (SelectableTypeEditTextPanel)findViewById(R.id.basicSTETP);
         basicSTETP.setListSelectType(listPhoneItem);
 
-        SelectableTypeEditTextPanel defaultValueSTETP = (SelectableTypeEditTextPanel)findViewById(R.id.defaultValueSTETP);
+        defaultValueSTETP = (SelectableTypeEditTextPanel)findViewById(R.id.defaultValueSTETP);
         defaultValueSTETP.setListSelectType(listPhoneItem);
         defaultValueSTETP.addSelectableTypeEditText("Default Value 1");
         defaultValueSTETP.addSelectableTypeEditText("Default Value 2");
         defaultValueSTETP.addSelectableTypeEditText("Default Value 3");
+    }
+
+    public void GetValue(View view) {
+        ((TextView)findViewById(R.id.basicTV)).setText(basicSTETP.getData().toString());
+        ((TextView)findViewById(R.id.defaultValueTV)).setText(defaultValueSTETP.getData().toString());
     }
 }
