@@ -29,4 +29,8 @@ public class MainActivity extends Activity {
         startActivity(new Intent(this, DateTimePickerDialog_Demo_Activity.class));
     }
 
+    public void OrientableTextView(View view) {
+        startActivity(new Intent(this, OrientableTextView_Demo_Activity.class));
+    }
+
 }

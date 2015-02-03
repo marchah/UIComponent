@@ -9,5 +9,7 @@
         <attr name="dialogSelectedItemTextColor" format="color"/>
         <!-- CUSTOM COMPONENT DATE TIME PICKER -->
         <attr name="is24HourView" format="string"/>
+        <!-- CUSTOM COMPONENT ORIENTABLE TEXT VIEW -->
+        <attr name="angle" format="integer"/>
     </declare-styleable>
 </resources>

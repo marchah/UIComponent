@@ -29,4 +29,10 @@
         android:text="DateTimePickerDialog"
         android:onClick="DateTimePickerDialog"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OrientableTextView"
+        android:onClick="OrientableTextView"/>
+
 </LinearLayout>
