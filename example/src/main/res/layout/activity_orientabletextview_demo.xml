@@ -56,13 +56,37 @@
             android:layout_height="wrap_content"
             android:background="#ff80ff"/>
 
-        <!-- 60° Angle OrientableTextView View-->
+        <!-- -45° Angle OrientableTextView View-->
         <com.marchah.uicomponent.OrientableTextView
+            android:text="-45° Angle OrientableTextView"
+            uic:angle="-45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#2952CC"/>
+
+
+        <!-- 60° Angle OrientableTextView View-->
+        <!--<com.marchah.uicomponent.OrientableTextView
             android:text="60° Angle OrientableTextView"
             uic:angle="60"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#b6e0a4"/>
+            android:background="#b6e0a4"/>-->
+
+        <!-- 160° Angle OrientableTextView View-->
+        <!--<com.marchah.uicomponent.OrientableTextView
+            android:text="160° Angle OrientableTextView"
+            uic:angle="160"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ADC2FF"/>-->
+
+        <!-- Basic OrientableTextView View-->
+        <!--<com.marchah.uicomponent.OrientableTextView
+            android:text="Basic OrientableTextView END"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#f645a8"/>-->
 
     </LinearLayout>
 
