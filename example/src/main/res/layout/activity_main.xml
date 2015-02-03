@@ -5,13 +5,11 @@
     android:orientation="vertical"
     tools:context="com.marchah.example.uicomponent.MainActivity">
 
-
-
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="SelectableTypeEditText"
-    android:onClick="SelectableTypeEditText"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SelectableTypeEditText"
+        android:onClick="SelectableTypeEditText"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -19,6 +17,16 @@
         android:text="SelectableTypeEditTextPanel"
         android:onClick="SelectableTypeEditTextPanel"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DateTimePicker"
+        android:onClick="DateTimePicker"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DateTimePickerDialog"
+        android:onClick="DateTimePickerDialog"/>
 
 </LinearLayout>

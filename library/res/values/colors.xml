@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- CUSTOM COMPONENT PHONE -->
-    <color name="fc_no_selected_item_list_indicator">#d3d3d3</color>
-    <color name="fc_default_selected_item_list_indicator">#f1c40f</color>
-    <color name="fc_no_selected_item_list_text">#000000</color>
-    <color name="fc_default_selected_item_list_text">#f1c40f</color>
+    <color name="uic_no_selected_item_list_indicator">#d3d3d3</color>
+    <color name="uic_default_selected_item_list_indicator">#f1c40f</color>
+    <color name="uic_no_selected_item_list_text">#000000</color>
+    <color name="uic_default_selected_item_list_text">#f1c40f</color>
 </resources>

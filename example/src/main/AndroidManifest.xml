@@ -24,6 +24,14 @@
             android:name=".SelectableTypeEditTextPanel_Demo_Activity"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name=".DateTimePicker_Demo_Activity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".DateTimePickerDialog_Demo_Activity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

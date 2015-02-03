@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="fc_stylable">
-        <!-- CUSTOM COMPONENT PHONE -->
+    <declare-styleable name="uic_stylable">
+        <!-- CUSTOM COMPONENT SELECTABLE TYPE EDIT TEXT -->
         <attr name="fieldHint" format="string"/>
         <attr name="android:inputType"/>
         <attr name="dialogTitle" format="string"/>
         <attr name="dialogSelectedItemIndicatorColor" format="color"/>
         <attr name="dialogSelectedItemTextColor" format="color"/>
+        <!-- CUSTOM COMPONENT DATE TIME PICKER -->
+        <attr name="is24HourView" format="string"/>
     </declare-styleable>
 </resources>

@@ -21,4 +21,12 @@ public class MainActivity extends Activity {
         startActivity(new Intent(this, SelectableTypeEditTextPanel_Demo_Activity.class));
     }
 
+    public void DateTimePicker(View view) {
+        startActivity(new Intent(this, DateTimePicker_Demo_Activity.class));
+    }
+
+    public void DateTimePickerDialog(View view) {
+        startActivity(new Intent(this, DateTimePickerDialog_Demo_Activity.class));
+    }
+
 }

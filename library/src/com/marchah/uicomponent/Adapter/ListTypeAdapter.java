@@ -41,8 +41,8 @@ public class ListTypeAdapter extends SimpleAdapter {
         if (position == positionSelectedItem && parent.getChildCount() > positionSelectedItem) {
             View Item = parent.getChildAt(positionSelectedItem);
 
-            Item.findViewById(R.id.fc_list_select_is_selectedTV).setBackgroundColor(selectedItemIndicatorColor);
-            ((TextView)Item.findViewById(R.id.fc_list_select_valueTV)).setTextColor(selectedItemTextColor);
+            Item.findViewById(R.id.uic_list_select_is_selectedTV).setBackgroundColor(selectedItemIndicatorColor);
+            ((TextView)Item.findViewById(R.id.uic_list_select_valueTV)).setTextColor(selectedItemTextColor);
         }
         return view;
     }

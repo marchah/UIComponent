@@ -2,12 +2,15 @@ package com.marchah.uicomponent;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -45,9 +48,9 @@ public class SelectableTypeEditTextPanel extends LinearLayout {
         listSelectableTypeEditText = new LinkedList<SelectableTypeEditText>();
         listSelectType = new LinkedHashMap<Integer, String>();
 
-        selectedItemIndicatorColor = getResources().getColor(R.color.fc_default_selected_item_list_indicator);
-        selectedItemTextColor = getResources().getColor(R.color.fc_default_selected_item_list_text);
-        dialogTitle = getResources().getString(R.string.fc_selectabletypeedittext_dialog_select_type_default_title);
+        selectedItemIndicatorColor = getResources().getColor(R.color.uic_default_selected_item_list_indicator);
+        selectedItemTextColor = getResources().getColor(R.color.uic_default_selected_item_list_text);
+        dialogTitle = getResources().getString(R.string.uic_selectabletypeedittext_dialog_select_type_default_title);
         fieldHint = "";
         fieldInputType = -1;
 
@@ -59,23 +62,23 @@ public class SelectableTypeEditTextPanel extends LinearLayout {
     }
 
     private void setAttrs(AttributeSet attrs) {
-        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.fc_stylable);
+        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.uic_stylable);
 
         for (int i = 0; i < a.getIndexCount(); i++) {
             int attr = a.getIndex(i);
-            if (attr == R.styleable.fc_stylable_dialogSelectedItemIndicatorColor) {
-                selectedItemIndicatorColor = a.getColor(attr, R.color.fc_default_selected_item_list_indicator);
+            if (attr == R.styleable.uic_stylable_dialogSelectedItemIndicatorColor) {
+                selectedItemIndicatorColor = a.getColor(attr, R.color.uic_default_selected_item_list_indicator);
             }
-            else if (attr == R.styleable.fc_stylable_dialogSelectedItemTextColor) {
-                selectedItemTextColor = a.getColor(attr, R.color.fc_default_selected_item_list_text);
+            else if (attr == R.styleable.uic_stylable_dialogSelectedItemTextColor) {
+                selectedItemTextColor = a.getColor(attr, R.color.uic_default_selected_item_list_text);
             }
-            else if (attr == R.styleable.fc_stylable_dialogTitle) {
+            else if (attr == R.styleable.uic_stylable_dialogTitle) {
                 dialogTitle = a.getString(attr);
             }
-            else if (attr == R.styleable.fc_stylable_fieldHint) {
+            else if (attr == R.styleable.uic_stylable_fieldHint) {
                 fieldHint = a.getString(attr);
             }
-            else if (attr == R.styleable.fc_stylable_android_inputType) {
+            else if (attr == R.styleable.uic_stylable_android_inputType) {
                 fieldInputType = a.getInt(attr, -1);
             }
         }
@@ -188,5 +191,56 @@ public class SelectableTypeEditTextPanel extends LinearLayout {
         }
 
         return listData;
+    }
+
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        Bundle bundle = new Bundle();
+
+        bundle.putParcelable("instanceState", super.onSaveInstanceState());
+        int count = 0;
+        for (Map.Entry<Integer, String> data : getData()) {
+            Bundle dataBundle = new Bundle();
+
+            int index = -1;
+            Iterator it = listSelectType.entrySet().iterator();
+            int i = 0;
+            while (it.hasNext()) {
+                Map.Entry pairs = (Map.Entry)it.next();
+                if (pairs.getKey() == data.getKey()) {
+                    index = i;
+                    break;
+                }
+                i++;
+            }
+
+            dataBundle.putInt("index", index);
+            dataBundle.putString("value", data.getValue());
+
+            bundle.putBundle("data_" + count, dataBundle);
+
+            count++;
+        }
+        bundle.putInt("data_count", count);
+        return bundle;
+    }
+
+    @Override
+    protected void onRestoreInstanceState (Parcelable state) {
+        if (state instanceof Bundle) {
+            removeAllViews();
+            listSelectableTypeEditText.clear();
+            Bundle bundle = (Bundle) state;
+
+            int count = bundle.getInt("data_count");
+            for (int i = 0; i != count; i++) {
+                Bundle dataBundle = bundle.getBundle("data_" + i);
+
+                addSelectableTypeEditText(dataBundle.getString("value"), dataBundle.getInt("index"));
+            }
+
+            state = bundle.getParcelable("instanceState");
+        }
+        super.onRestoreInstanceState(state);
     }
 }

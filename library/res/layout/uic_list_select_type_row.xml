@@ -4,16 +4,16 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/fc_list_select_is_selectedTV"
+        android:id="@+id/uic_list_select_is_selectedTV"
         android:layout_width="5dp"
-        android:background="@color/fc_no_selected_item_list_indicator"
+        android:background="@color/uic_no_selected_item_list_indicator"
         android:layout_height="match_parent" />
 
     <TextView
-        android:id="@+id/fc_list_select_valueTV"
+        android:id="@+id/uic_list_select_valueTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/fc_no_selected_item_list_text"
+        android:textColor="@color/uic_no_selected_item_list_text"
         android:textSize="20sp"
         android:padding="5dp"/>
 

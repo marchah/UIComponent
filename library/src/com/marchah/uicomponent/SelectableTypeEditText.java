@@ -63,27 +63,27 @@ public class SelectableTypeEditText extends RelativeLayout {
 
         HashMap<String, String> item = new HashMap<String, String>();
         item.put("key", "-1");
-        item.put("value", getResources().getString(R.string.fc_selectabletypeedittext_no_type));
+        item.put("value", getResources().getString(R.string.uic_selectabletypeedittext_no_type));
         listItem.add(item);
 
         positionSelectedItem = -1;
         keySelectedItem = -1;
-        selectedItemIndicatorColor = getResources().getColor(R.color.fc_default_selected_item_list_indicator);
-        selectedItemTextColor = getResources().getColor(R.color.fc_default_selected_item_list_text);
-        dialogTitle = getResources().getString(R.string.fc_selectabletypeedittext_dialog_select_type_default_title);
+        selectedItemIndicatorColor = getResources().getColor(R.color.uic_default_selected_item_list_indicator);
+        selectedItemTextColor = getResources().getColor(R.color.uic_default_selected_item_list_text);
+        dialogTitle = getResources().getString(R.string.uic_selectabletypeedittext_dialog_select_type_default_title);
         fieldHint = "";
         fieldInputType = -1;
 
 
 
         changeTypeB = new Button(getContext());
-        changeTypeB.setId(R.id.fc_changeTypeB);
+        changeTypeB.setId(R.id.uic_changeTypeB);
         LayoutParams changeTypeBLP = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         changeTypeBLP.addRule(ALIGN_PARENT_LEFT);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1)
             changeTypeBLP.addRule(ALIGN_PARENT_START);
         changeTypeB.setLayoutParams(changeTypeBLP);
-        changeTypeB.setText(getResources().getString(R.string.fc_selectabletypeedittext_type_button_default));
+        changeTypeB.setText(getResources().getString(R.string.uic_selectabletypeedittext_type_button_default));
         changeTypeB.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,23 +113,23 @@ public class SelectableTypeEditText extends RelativeLayout {
     }
 
     private void setAttrs(AttributeSet attrs) {
-        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.fc_stylable);
+        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.uic_stylable);
 
         for (int i = 0; i < a.getIndexCount(); i++) {
             int attr = a.getIndex(i);
-            if (attr == R.styleable.fc_stylable_dialogSelectedItemIndicatorColor) {
-                selectedItemIndicatorColor = a.getColor(attr, R.color.fc_default_selected_item_list_indicator);
+            if (attr == R.styleable.uic_stylable_dialogSelectedItemIndicatorColor) {
+                selectedItemIndicatorColor = a.getColor(attr, R.color.uic_default_selected_item_list_indicator);
             }
-            else if (attr == R.styleable.fc_stylable_dialogSelectedItemTextColor) {
-                selectedItemTextColor = a.getColor(attr, R.color.fc_default_selected_item_list_text);
+            else if (attr == R.styleable.uic_stylable_dialogSelectedItemTextColor) {
+                selectedItemTextColor = a.getColor(attr, R.color.uic_default_selected_item_list_text);
             }
-            else if (attr == R.styleable.fc_stylable_dialogTitle) {
+            else if (attr == R.styleable.uic_stylable_dialogTitle) {
                 dialogTitle = a.getString(attr);
             }
-            else if (attr == R.styleable.fc_stylable_fieldHint) {
+            else if (attr == R.styleable.uic_stylable_fieldHint) {
                 fieldHint = a.getString(attr);
             }
-            else if (attr == R.styleable.fc_stylable_android_inputType) {
+            else if (attr == R.styleable.uic_stylable_android_inputType) {
                 fieldInputType = a.getInt(attr, -1);
             }
         }
@@ -206,8 +206,8 @@ public class SelectableTypeEditText extends RelativeLayout {
         layout.setOrientation(LinearLayout.VERTICAL);
         ListView listViewType = new ListView(getContext());
 
-        ListTypeAdapter listViewItem = new ListTypeAdapter(getContext(), listItem, R.layout.fc_list_select_type_row,
-                new String[] {"value"}, new int[] {R.id.fc_list_select_valueTV});
+        ListTypeAdapter listViewItem = new ListTypeAdapter(getContext(), listItem, R.layout.uic_list_select_type_row,
+                new String[] {"value"}, new int[] {R.id.uic_list_select_valueTV});
 
         listViewItem.setPositionSelectedItem(positionSelectedItem);
         listViewItem.setSelectedItemColor(selectedItemIndicatorColor, selectedItemTextColor);
