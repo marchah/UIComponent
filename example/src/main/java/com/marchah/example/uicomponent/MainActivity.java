@@ -33,4 +33,8 @@ public class MainActivity extends Activity {
         startActivity(new Intent(this, OrientableTextView_Demo_Activity.class));
     }
 
+    public void CameraView(View view) {
+        startActivity(new Intent(this, CameraView_Demo_Activity.class));
+    }
+
 }

@@ -35,4 +35,10 @@
         android:text="OrientableTextView"
         android:onClick="OrientableTextView"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CameraView"
+        android:onClick="CameraView"/>
+
 </LinearLayout>

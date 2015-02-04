@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:uic="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.marchah.uicomponent.CameraView
+        android:id="@+id/basicCV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:id="@+id/closeFullScreenB"
+        android:text="Close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="ResizePicture"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/switchCameraB"
+        android:text="Switch Camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="SwitchCamera"/>
+
+    <Button
+        android:id="@+id/takePictureB"
+        android:text="Take Picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="TakePicture"/>
+
+    <ImageView
+        android:id="@+id/pictureIV"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:background="#000000"
+        android:onClick="ResizePicture"/>
+
+</RelativeLayout>
