@@ -6,13 +6,13 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.hardware.Camera;
 import android.os.Build;
-import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 
 import com.marchah.uicomponent.Listener.CameraListener;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by marcha on 04/02/15.
@@ -30,6 +30,9 @@ public class CameraOld extends ACamera {
         currentCameraId = Camera.CameraInfo.CAMERA_FACING_BACK;
         mCamera = null;
         mCamera = Camera.open(currentCameraId);
+        Camera.Parameters params = mCamera.getParameters();
+        params.setFocusMode(Camera.Parameters.FOCUS_MODE_AUTO);
+        mCamera.setParameters(params);
     }
 
     public void startPreview() throws IOException {
@@ -46,6 +49,51 @@ public class CameraOld extends ACamera {
     public void release() {
         if (mCamera != null)
             mCamera.release();
+    }
+
+    private double PREVIEW_SIZE_FACTOR = 1.30;
+
+    public void setPreviewSize(int width, int height) {
+        final Camera.Parameters params = mCamera.getParameters();
+        Camera.Size size = getOptimalPreviewSize(params, width, height);
+        params.setPreviewSize(size.width, size.height);
+
+        size = getOptimalPictureSize(params);
+        params.setPictureSize(size.width, size.height);
+
+        mCamera.setParameters(params);
+    }
+
+    private Camera.Size getOptimalPictureSize(Camera.Parameters params) {
+        List<Camera.Size> sizes = params.getSupportedPictureSizes();
+        Camera.Size result = sizes.get(0);
+        for (int i = 0; i < sizes.size(); i++) {
+            if (sizes.get(i).width > result.width)
+                result = sizes.get(i);
+        }
+        return result;
+    }
+
+    private Camera.Size getOptimalPreviewSize(Camera.Parameters params, int width, int height) {
+        Camera.Size result = null;
+        for (final Camera.Size size : params.getSupportedPreviewSizes()) {
+            if (size.width <= width * PREVIEW_SIZE_FACTOR && size.height <= height * PREVIEW_SIZE_FACTOR) {
+                if (result == null) {
+                    result = size;
+                } else {
+                    final int resultArea = result.width * result.height;
+                    final int newArea = size.width * size.height;
+
+                    if (newArea > resultArea) {
+                        result = size;
+                    }
+                }
+            }
+        }
+        if (result == null) {
+            result = params.getSupportedPreviewSizes().get(0);
+        }
+        return result;
     }
 
     private int getPictureRotation() {

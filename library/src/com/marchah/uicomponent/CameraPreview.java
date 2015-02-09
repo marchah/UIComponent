@@ -1,8 +1,6 @@
 package com.marchah.uicomponent;
 
 import android.app.Activity;
-import android.graphics.Matrix;
-import android.graphics.PointF;
 import android.os.Build;
 import android.util.AndroidException;
 import android.util.FloatMath;
@@ -51,38 +49,6 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             maxZoomLevel = mCamera.getMaxZoom();
         else
             maxZoomLevel = 0;
-
-        /*if (mCamera.isZoomSupported()) {
-            final int maxZoomLevel = mCamera.getMaxZoom();
-            Log.i("max ZOOM ", "is " + maxZoomLevel);
-            zoomControls.setIsZoomInEnabled(true);
-            zoomControls.setIsZoomOutEnabled(true);
-
-            zoomControls.setOnZoomInClickListener(new OnClickListener(){
-                public void onClick(View v){
-                    if(currentZoomLevel < maxZoomLevel){
-                        currentZoomLevel++;
-                        //mCamera.startSmoothZoom(currentZoomLevel);
-                        Log.v("Debug", "zoom: " + currentZoomLevel);
-                        mCamera.setZoom(currentZoomLevel);
-                    }
-                }
-            });
-
-            zoomControls.setOnZoomOutClickListener(new OnClickListener(){
-                public void onClick(View v){
-                    if(currentZoomLevel > 0){
-                        currentZoomLevel--;
-                        Log.v("Debug", "zoom: " + currentZoomLevel);
-                        mCamera.setZoom(currentZoomLevel);
-                    }
-                }
-            });
-        }
-        else
-            zoomControls.setVisibility(View.GONE);*/
-
-
     }
 
     @Override
@@ -93,7 +59,6 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                 break;
             case MotionEvent.ACTION_POINTER_DOWN:
                 oldDist = spacing(event);
-                Log.d(TAG, "oldDist=" + oldDist);
                 if (oldDist > 10f) {
                     mode = ZOOM;
                     Log.d(TAG, "mode=ZOOM");
@@ -113,7 +78,6 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                     if (scale > 10) {
                         if(currentZoomLevel < maxZoomLevel) {
                             currentZoomLevel++;
-                            Log.v("Debug", "zoom: " + currentZoomLevel);
                             mCamera.setZoom(currentZoomLevel);
                         }
                         oldDist = newDist;
@@ -121,18 +85,14 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                     else if (scale < -10) {
                         if(currentZoomLevel > 0){
                             currentZoomLevel--;
-                            Log.v("Debug", "zoom: " + currentZoomLevel);
                             mCamera.setZoom(currentZoomLevel);
                         }
                         oldDist = newDist;
                     }
-
-                    Log.d(TAG, "newDist=" + newDist);
-
                 }
                 break;
         }
-        return true; // indicate event was handled
+        return true;
     }
 
     private static final String TAG = "Touch";
@@ -173,6 +133,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder holder) {
         // The Surface has been created, now tell the camera where to draw the preview.
         try {
+            mCamera.setPreviewSize(getWidth(), getHeight());
             mCamera.setCameraDisplayOrientation();
             mCamera.startPreview();
         } catch (IOException e) {

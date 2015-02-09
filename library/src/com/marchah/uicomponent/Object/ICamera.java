@@ -21,4 +21,5 @@ public interface ICamera {
     public boolean isZoomSupported();
     public int getMaxZoom();
     public void setZoom(int zoomLevel);
+    public void setPreviewSize(int width, int height);
 }
