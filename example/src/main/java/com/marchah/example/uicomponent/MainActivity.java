@@ -37,4 +37,8 @@ public class MainActivity extends Activity {
         startActivity(new Intent(this, CameraView_Demo_Activity.class));
     }
 
+    public void ImagePreview(View view) {
+        startActivity(new Intent(this, ImagePreview_Demo_Activity.class));
+    }
+
 }

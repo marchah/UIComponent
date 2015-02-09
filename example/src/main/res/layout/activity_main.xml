@@ -41,4 +41,10 @@
         android:text="CameraView"
         android:onClick="CameraView"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ImagePreview"
+        android:onClick="ImagePreview"/>
+
 </LinearLayout>
