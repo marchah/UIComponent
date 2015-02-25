@@ -12,7 +12,7 @@
         <!-- CUSTOM COMPONENT ORIENTABLE TEXT VIEW -->
         <attr name="angle" format="integer"/>
         <!-- CUSTOM COMPONENT IMAGE PREVIEW -->
-        <attr name="android:layout_width"/>
-        <attr name="android:layout_height"/>
+        <attr name="thumb" format="reference"/>
+        <attr name="image" format="reference"/>
     </declare-styleable>
 </resources>
